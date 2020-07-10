@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>VanillaMasker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">VanillaMasker</h1>
+      <h2 class="project-tagline">A pure javascript input masker</h2>
+      <a href="https://github.com/vanilla-masker/vanilla-masker" class="btn">View on GitHub</a>
+      <a href="https://github.com/vanilla-masker/vanilla-masker/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/vanilla-masker/vanilla-masker/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="whats-this" class="anchor" href="#whats-this" aria-hidden="true"><span class="octicon octicon-link"></span></a>What's this</h1>
+
+<p><a href="https://travis-ci.org/vanilla-masker/vanilla-masker"><img src="https://travis-ci.org/vanilla-masker/vanilla-masker.svg" alt="Build Status"></a>
+
+<p>It's a pure JavaScript mask input.<br>
+Now you can use a simple and pure javascript lib to mask your input elements, without need to load jQuery or Zepto to do it.</p>
+
+<p>Let's live a lightweight client-side world using micro libraries as VanillaMasker is!<br>
+Don't worry about where this will work, because this is a cross-browser and cross-device library. And if you find any bug, please let us know about it <a href="https://github.com/vanilla-masker/vanilla-masker/issues">reporting an issue</a>.</p>
+
+<p>If you wanna see how this lib works, click to test this <a href="https://vanilla-masker.github.io/vanilla-masker/demo.html">demo page</a>.</p>
+
+<h1>
+<a id="how-to-install" class="anchor" href="#how-to-install" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to install</h1>
+
+<h3>
+<a id="download-script" class="anchor" href="#download-script" aria-hidden="true"><span class="octicon octicon-link"></span></a>Download script</h3>
+
+<ul>
+<li>
+<a href="https://raw.githubusercontent.com/vanilla-masker/vanilla-masker/1.1.1/lib/vanilla-masker.js">development version</a> (6.2 Kbytes);</li>
+<li>
+<a href="https://raw.githubusercontent.com/vanilla-masker/vanilla-masker/1.1.1/build/vanilla-masker.min.js">minified version</a> (3.24 Kbytes);</li>
+<li>
+<a href="https://raw.githubusercontent.com/vanilla-masker/vanilla-masker/1.1.1/build/vanilla-masker.min.gz.js">gzipped version</a> (1.3 Kbytes);</li>
+</ul>
+
+<p>We have the following CDN available, for development or minified versions:</p>
+
+<p><code>//cdn.jsdelivr.net/npm/vanilla-masker@1.1.1/lib/vanilla-masker.js</code><br>
+<code>//cdn.jsdelivr.net/npm/vanilla-masker@1.1.1/build/vanilla-masker.min.js</code></p>
+
+<p>We intent to automatically send new versions to the CDN, but keep in mind that the version you want might not be available there. Of course you can always download and put it in your own site. </p>
+
+<h3>
+<a id="npm" class="anchor" href="#npm" aria-hidden="true"><span class="octicon octicon-link"></span></a>NPM</h3>
+
+<p>For npm users you just run this command: <code>npm install vanilla-masker --save</code></p>
+
+<h3>
+<a id="bower" class="anchor" href="#bower" aria-hidden="true"><span class="octicon octicon-link"></span></a>Bower</h3>
+
+<p>You can install it via bower too, using this command: <code>bower install --save vanilla-masker</code></p>
+
+<h3>
+<a id="meteor" class="anchor" href="#meteor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Meteor</h3>
+
+<p>And you can install inside your meteor projects with this command: <code>meteor add bankfacil:vanilla-masker</code></p>
+
+<h1>
+<a id="how-to-use" class="anchor" href="#how-to-use" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to use</h1>
+
+<h3>
+<a id="loading-the-lib" class="anchor" href="#loading-the-lib" aria-hidden="true"><span class="octicon octicon-link"></span></a>Loading the lib</h3>
+
+<p>Like I said, you need to download and put this lib in your own site, using this tag below:</p>
+
+<div class="highlight highlight-html"><pre>&lt;<span class="pl-ent">html</span>&gt;
+   &lt;<span class="pl-ent">head</span>&gt;&lt;/<span class="pl-ent">head</span>&gt;
+   &lt;<span class="pl-ent">body</span>&gt;
+      &lt;<span class="pl-ent">input</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>text<span class="pl-pds">"</span></span>&gt;
+      <span class="pl-c">&lt;!-- Loading the vanilla-masker lib --&gt;</span>
+<span class="pl-s1">      &lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>vanilla-masker.min.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</span>
+   &lt;/<span class="pl-ent">body</span>&gt;
+&lt;/<span class="pl-ent">html</span>&gt;</pre></div>
+
+<h3>
+<a id="common-uses" class="anchor" href="#common-uses" aria-hidden="true"><span class="octicon octicon-link"></span></a>Common uses</h3>
+
+<h4>
+<a id="money-format" class="anchor" href="#money-format" aria-hidden="true"><span class="octicon octicon-link"></span></a>Money format</h4>
+
+<div class="highlight highlight-javascript"><pre>
+<span class="pl-c">// Masking input element to money.</span>
+<span class="pl-c1">VMasker</span>(<span class="pl-c1">document</span>.<span class="pl-c1">querySelector</span>(<span class="pl-s"><span class="pl-pds">"</span>data-js-input<span class="pl-pds">"</span></span>)).<span class="pl-c1">maskMoney</span>();
+
+<span class="pl-c">// Masking input element to money with options.</span>
+<span class="pl-c1">VMasker</span>(<span class="pl-c1">document</span>.<span class="pl-c1">querySelector</span>(<span class="pl-s"><span class="pl-pds">"</span>data-js-input<span class="pl-pds">"</span></span>)).<span class="pl-c1">maskMoney</span>({
+  <span class="pl-c">// Decimal precision -&gt; "90"</span>
+  precision<span class="pl-k">:</span> <span class="pl-c1">2</span>,
+  <span class="pl-c">// Decimal separator -&gt; ",90"</span>
+  separator<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>,<span class="pl-pds">'</span></span>,
+  <span class="pl-c">// Number delimiter -&gt; "12.345.678"</span>
+  delimiter<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>.<span class="pl-pds">'</span></span>,
+  <span class="pl-c">// Money unit -&gt; "R$ 12.345.678,90"</span>
+  unit<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>R$<span class="pl-pds">'</span></span>,
+  <span class="pl-c">// Money unit -&gt; "12.345.678,90 R$"</span>
+  suffixUnit<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>R$<span class="pl-pds">'</span></span>,
+  <span class="pl-c">// Force type only number instead decimal,</span>
+  <span class="pl-c">// masking decimals with ",00"</span>
+  <span class="pl-c">// Zero cents -&gt; "R$ 1.234.567.890,00"</span>
+  zeroCents<span class="pl-k">:</span> <span class="pl-c1">true</span>
+});
+
+<span class="pl-c">// Masking an array of input elements to money.</span>
+<span class="pl-c1">VMasker</span>(<span class="pl-c1">document</span>.<span class="pl-c1">querySelectorAll</span>(<span class="pl-s"><span class="pl-pds">"</span>data-js-input<span class="pl-pds">"</span></span>)).<span class="pl-c1">maskMoney</span>();
+
+<span class="pl-c">// Converts number to money string</span>
+VMasker.<span class="pl-c1">toMoney</span>(<span class="pl-c1">1234</span>); <span class="pl-c">// -&gt; R$ 1.234,00</span></pre></div>
+
+<h4>
+<a id="only-numbers" class="anchor" href="#only-numbers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Only numbers</h4>
+
+<div class="highlight highlight-javascript"><pre><span class="pl-c">// Masking input element to number.</span>
+<span class="pl-c1">VMasker</span>(<span class="pl-c1">document</span>.<span class="pl-c1">querySelector</span>(<span class="pl-s"><span class="pl-pds">"</span>data-js-input<span class="pl-pds">"</span></span>)).<span class="pl-c1">maskNumber</span>();
+
+<span class="pl-c">// Converts any string to number</span>
+VMasker.<span class="pl-c1">toNumber</span>(<span class="pl-s"><span class="pl-pds">"</span>123ac34<span class="pl-pds">"</span></span>); <span class="pl-c">// -&gt; 12334</span>
+VMasker.<span class="pl-c1">toNumber</span>(<span class="pl-s"><span class="pl-pds">"</span>-123ac34<span class="pl-pds">"</span></span>); <span class="pl-c">// -&gt; -12334</span></pre></div>
+
+<h4>
+<a id="custom-pattern" class="anchor" href="#custom-pattern" aria-hidden="true"><span class="octicon octicon-link"></span></a>Custom pattern</h4>
+
+<div class="highlight highlight-javascript"><pre><span class="pl-c">// Listen the input element masking it to format with pattern.</span>
+<span class="pl-c1">VMasker</span>(<span class="pl-c1">document</span>.<span class="pl-c1">querySelector</span>(<span class="pl-s"><span class="pl-pds">"</span>input<span class="pl-pds">"</span></span>)).<span class="pl-c1">maskPattern</span>(<span class="pl-s"><span class="pl-pds">"</span>(99) 9999-9999<span class="pl-pds">"</span></span>);
+
+<span class="pl-c">// Converts value to masked phone</span>
+VMasker.<span class="pl-c1">toPattern</span>(<span class="pl-c1">1099911111</span>, <span class="pl-s"><span class="pl-pds">"</span>(99) 9999-9999<span class="pl-pds">"</span></span>); <span class="pl-c">// -&gt; (10) 9991-1111</span>
+<span class="pl-c">// Converts value to masked date</span>
+VMasker.<span class="pl-c1">toPattern</span>(<span class="pl-c1">12122000</span>, <span class="pl-s"><span class="pl-pds">"</span>99/99/9999<span class="pl-pds">"</span></span>); <span class="pl-c">// -&gt; 12/12/2000</span>
+<span class="pl-c">// Converts value to masked document</span>
+VMasker.<span class="pl-c1">toPattern</span>(<span class="pl-c1">99911111101</span>, <span class="pl-s"><span class="pl-pds">"</span>999.999.999-99<span class="pl-pds">"</span></span>); <span class="pl-c">// -&gt; 999.111.111-01</span>
+<span class="pl-c">// Converts value to masked car plate</span>
+VMasker.<span class="pl-c1">toPattern</span>(<span class="pl-s"><span class="pl-pds">'</span>ABC1234<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">"</span>AAA-9999<span class="pl-pds">"</span></span>); <span class="pl-c">// -&gt; ABC-1234</span>
+<span class="pl-c">// Converts value to masked vehicle identification</span>
+VMasker.<span class="pl-c1">toPattern</span>(<span class="pl-s"><span class="pl-pds">'</span>9BGRD08X04G117974<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">"</span>SS.SS.SSSSS.S.S.SSSSSS<span class="pl-pds">"</span></span>); <span class="pl-c">// -&gt; 9B.GR.D08X0.4.G.117974</span>
+
+<span class="pl-c">// Pass in an optional placeholder option to represent remaining characters to be entered</span>
+VMasker.<span class="pl-c1">toPattern</span>(<span class="pl-s"><span class="pl-pds">'</span>4<span class="pl-pds">'</span></span>, {pattern<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>(999) 999-9999<span class="pl-pds">"</span></span>, placeholder<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>x<span class="pl-pds">"</span></span>}); <span class="pl-c">// -&gt; (4xx) xxx-xxxx</span></pre></div>
+
+<h4>
+<a id="undoing-a-mask" class="anchor" href="#undoing-a-mask" aria-hidden="true"><span class="octicon octicon-link"></span></a>Undoing a mask</h4>
+
+<div class="highlight highlight-javascript"><pre><span class="pl-k">var</span> el <span class="pl-k">=</span> <span class="pl-c1">document</span>.<span class="pl-c1">querySelector</span>(<span class="pl-s"><span class="pl-pds">"</span>input<span class="pl-pds">"</span></span>)
+<span class="pl-c1">VMasker</span>(el).<span class="pl-c1">maskPattern</span>(<span class="pl-s"><span class="pl-pds">"</span>(99) 9999-9999<span class="pl-pds">"</span></span>); <span class="pl-c">// masking the input</span>
+<span class="pl-c1">VMasker</span>(el).<span class="pl-c1">unMask</span>(); <span class="pl-c">// unmask!</span></pre></div>
+
+<h3>
+<a id="meteor-uses" class="anchor" href="#meteor-uses" aria-hidden="true"><span class="octicon octicon-link"></span></a>Meteor uses</h3>
+
+<p>If your app is built on top of Meteor framework, you can use the lib in this way...</p>
+
+<div class="highlight highlight-html"><pre>&lt;<span class="pl-ent">body</span>&gt;
+  &lt;<span class="pl-ent">h1</span>&gt;Welcome to Meteor!&lt;/<span class="pl-ent">h1</span>&gt;
+  {{&gt; myTemplate}}
+&lt;/<span class="pl-ent">body</span>&gt;
+
+&lt;<span class="pl-ent">template</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>myTemplate<span class="pl-pds">"</span></span>&gt;
+  &lt;<span class="pl-ent">input</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>text<span class="pl-pds">"</span></span> <span class="pl-e">placeholder</span>=<span class="pl-s"><span class="pl-pds">"</span>Money<span class="pl-pds">"</span></span> <span class="pl-e">data-vm-mask-money</span>&gt;
+  &lt;<span class="pl-ent">input</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>text<span class="pl-pds">"</span></span> <span class="pl-e">placeholder</span>=<span class="pl-s"><span class="pl-pds">"</span>Number<span class="pl-pds">"</span></span> <span class="pl-e">data-vm-mask-number</span>&gt;
+  &lt;<span class="pl-ent">input</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>text<span class="pl-pds">"</span></span> <span class="pl-e">placeholder</span>=<span class="pl-s"><span class="pl-pds">"</span>Date<span class="pl-pds">"</span></span> <span class="pl-e">data-vm-mask-date</span>&gt;
+&lt;/<span class="pl-ent">template</span>&gt;
+</pre></div>
+
+<p>You just need to bind the elements into the template <code>rendered</code> function...</p>
+
+<div class="highlight highlight-javascript"><pre><span class="pl-k">if</span> (Meteor.<span class="pl-c1">isClient</span>) {
+  <span class="pl-c1">Template.myTemplate</span>.<span class="pl-en">rendered</span> <span class="pl-k">=</span> <span class="pl-k">function</span>() {
+    <span class="pl-c1">VMasker</span>(<span class="pl-v">this</span>.<span class="pl-c1">find</span>(<span class="pl-s"><span class="pl-pds">"</span>[data-vm-mask-money]<span class="pl-pds">"</span></span>)).<span class="pl-c1">maskMoney</span>();
+    <span class="pl-c1">VMasker</span>(<span class="pl-v">this</span>.<span class="pl-c1">find</span>(<span class="pl-s"><span class="pl-pds">"</span>[data-vm-mask-number]<span class="pl-pds">"</span></span>)).<span class="pl-c1">maskNumber</span>();
+    <span class="pl-c1">VMasker</span>(<span class="pl-v">this</span>.<span class="pl-c1">find</span>(<span class="pl-s"><span class="pl-pds">"</span>[data-vm-mask-date]<span class="pl-pds">"</span></span>)).<span class="pl-c1">maskPattern</span>(<span class="pl-s"><span class="pl-pds">"</span>99/99/9999<span class="pl-pds">"</span></span>);
+  };
+}</pre></div>
+
+<h1>
+<a id="how-to-run-localhost" class="anchor" href="#how-to-run-localhost" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to run localhost</h1>
+
+<ul>
+<li>Install node.js - <a href="http://nodejs.org/download">http://nodejs.org/download</a>
+</li>
+<li>Clone this repository - <code>git clone git@github.com:vanilla-masker/vanilla-masker.git</code>
+</li>
+<li>Install Grunt - <code>npm install -g grunt-cli</code>
+</li>
+<li>Install Grunt dependencies - <code>cd vanilla-masker &amp;&amp; npm install</code>
+</li>
+<li>Running development mode - <code>grunt dev</code>
+</li>
+<li>Open the browser - http://localhost:4500</li>
+</ul>
+
+<h1>
+<a id="run-test" class="anchor" href="#run-test" aria-hidden="true"><span class="octicon octicon-link"></span></a>Run test</h1>
+
+<ul>
+<li>Run the command: <code>grunt test</code>
+</li>
+</ul>
+
+<h1>
+<a id="build-project" class="anchor" href="#build-project" aria-hidden="true"><span class="octicon octicon-link"></span></a>Build project</h1>
+
+<ul>
+<li>Run the command: <code>grunt build</code>
+</li>
+</ul>
+
+<h1>
+<a id="todo---we-need-pull-requests-" class="anchor" href="#todo---we-need-pull-requests-" aria-hidden="true"><span class="octicon octicon-link"></span></a>TODO - we need pull requests :]</h1>
+
+<ul>
+<li>Test Opera mini browser;</li>
+<li>Beautify Demo Page;</li>
+<li>Bind mask using <code>data-vm</code> attributes;</li>
+<li>Find more <a href="https://coindataflow.com/en">extra resources</a></li>
+</ul>
+
+<h1>
+<a id="compatibility" class="anchor" href="#compatibility" aria-hidden="true"><span class="octicon octicon-link"></span></a>Compatibility</h1>
+
+<p>Desktop browsers:</p>
+
+<ul>
+<li>Chrome 4.0+</li>
+<li>Firefox 2.0+</li>
+<li>Safari 4.0+</li>
+<li>Opera 10.0+</li>
+<li>Internet Explorer 8+</li>
+</ul>
+
+<p>Mobile browsers:</p>
+
+<ul>
+<li>Android browser 2.2+</li>
+<li>Chrome mobile 35.0+</li>
+<li>Firefox mobile 29.0+</li>
+<li>Opera mobile 10.0+</li>
+<li>iOS Safari 3.2+</li>
+<li>Windows Phone browsers</li>
+</ul>
+
+<h1>
+<a id="contributors" class="anchor" href="#contributors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contributors</h1>
+
+<p>Caio Ribeiro Pereira - <a href="mailto:caio.ribeiro.pereira@gmail.com">caio.ribeiro.pereira@gmail.com</a><br>
+Leandro Alvares da Costa - <a href="mailto:leandroadacosta@gmail.com">leandroadacosta@gmail.com</a><br>
+Bobby - <a href="mailto:squidz.bee@gmail.com">squidz.bee@gmail.com</a><br>
+Henrique Antonini Silvério - <a href="mailto:contato@henriquesilverio.com">contato@henriquesilverio.com</a><br>
+Joilson Marques - <a href="mailto:joilsonmarques@gmail.com">joilsonmarques@gmail.com</a><br>
+Leonardo Andrade - <a href="mailto:leonardopandrade@gmail.com">leonardopandrade@gmail.com</a></p>
+
+<h1>
+<a id="changelog" class="anchor" href="#changelog" aria-hidden="true"><span class="octicon octicon-link"></span></a>Changelog</h1>
+
+<h2>
+<a id="110---13082015" class="anchor" href="#110---13082015" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.1.0 - 13/08/2015</h2>
+
+<ul>
+<li>Improved demo page layout - <a href="https://github.com/vanilla-masker/vanilla-masker/pull/40">See this pull request</a>
+</li>
+<li>Fixed bower.json - <a href="https://github.com/vanilla-masker/vanilla-masker/pull/43">See this pull request</a>
+</li>
+<li>When backspace is pressed the pattern is kept - <a href="https://github.com/vanilla-masker/vanilla-masker/pull/47">See this pull request</a>
+</li>
+<li>Enabled sauce-labs on Travis - <a href="https://github.com/vanilla-masker/vanilla-masker/pull/44">See this pull request</a>
+</li>
+</ul>
+
+<h2>
+<a id="109---07042015" class="anchor" href="#109---07042015" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.0.9 - 07/04/2015</h2>
+
+<ul>
+<li>Added optional placeholder feature for patterns - <a href="https://github.com/vanilla-masker/vanilla-masker/pull/35">See this pull request</a>
+</li>
+</ul>
+
+<h2>
+<a id="108---27012015" class="anchor" href="#108---27012015" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.0.8 - 27/01/2015</h2>
+
+<ul>
+<li>Bug fix #29 - <a href="https://github.com/vanilla-masker/vanilla-masker/pull/29">See this pull request</a>
+</li>
+</ul>
+
+<h2>
+<a id="107---26012015" class="anchor" href="#107---26012015" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.0.7 - 26/01/2015</h2>
+
+<ul>
+<li>Bug fix #28 - <a href="https://github.com/vanilla-masker/vanilla-masker/issues/28">See this issue</a>
+</li>
+</ul>
+
+<h2>
+<a id="106---19122014" class="anchor" href="#106---19122014" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.0.6 - 19/12/2014</h2>
+
+<ul>
+<li>Bug fix #26 - <a href="https://github.com/vanilla-masker/vanilla-masker/pull/26">See this pull request</a>
+</li>
+<li>Bug fix #24 - <a href="https://github.com/vanilla-masker/vanilla-masker/pull/24">See this pull request</a>
+</li>
+</ul>
+
+<h2>
+<a id="105---06122014" class="anchor" href="#105---06122014" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.0.5 - 06/12/2014</h2>
+
+<ul>
+<li>Bug fix - <a href="https://github.com/vanilla-masker/vanilla-masker/pull/19">See this pull request</a>
+</li>
+</ul>
+
+<h2>
+<a id="104---02122014" class="anchor" href="#104---02122014" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.0.4 - 02/12/2014</h2>
+
+<ul>
+<li>Added <code>unbindElementToMask()</code> function.</li>
+<li>Added <code>unMask()</code> function.</li>
+</ul>
+
+<h2>
+<a id="103---29102014" class="anchor" href="#103---29102014" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.0.3 - 29/10/2014</h2>
+
+<ul>
+<li>Added pattern "S" to support alphanumerics.</li>
+</ul>
+
+<h2>
+<a id="102---25092014" class="anchor" href="#102---25092014" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.0.2 - 25/09/2014</h2>
+
+<ul>
+<li>Added Meteor Package support.</li>
+</ul>
+
+<h2>
+<a id="101---19092014" class="anchor" href="#101---19092014" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.0.1 - 19/09/2014</h2>
+
+<ul>
+<li>Fix VMasker factory when element is empty array.</li>
+</ul>
+
+<h2>
+<a id="100---14092014" class="anchor" href="#100---14092014" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.0.0 - 14/09/2014</h2>
+
+<ul>
+<li>Added VMasker factory as default.</li>
+<li>Fix Windows Phone compatibility.</li>
+</ul>
+
+<h2>
+<a id="033" class="anchor" href="#033" aria-hidden="true"><span class="octicon octicon-link"></span></a>0.3.3</h2>
+
+<ul>
+<li>Fix ignore setSelectionRange cursor for IE8.</li>
+<li>Fix ZeroCents behavior for maskMoney.</li>
+<li>Fix last output state for single element.</li>
+<li>Fix Bower main file.</li>
+</ul>
+
+<h2>
+<a id="032" class="anchor" href="#032" aria-hidden="true"><span class="octicon octicon-link"></span></a>0.3.2</h2>
+
+<ul>
+<li>Added suffixUnit support for maskMoney.</li>
+</ul>
+
+<h2>
+<a id="031" class="anchor" href="#031" aria-hidden="true"><span class="octicon octicon-link"></span></a>0.3.1</h2>
+
+<ul>
+<li>Fix mask when input has values.</li>
+<li>Fix cursor navigation.</li>
+<li>Fix delete char at specific position.</li>
+</ul>
+
+<h2>
+<a id="030" class="anchor" href="#030" aria-hidden="true"><span class="octicon octicon-link"></span></a>0.3.0</h2>
+
+<ul>
+<li>Accepting elements from mask function</li>
+<li>Changed maskPhone, maskCPF, maskCNPJ and maskDate to maskPattern function</li>
+<li>Added toPattern function</li>
+<li>Fixed maskPattern when types pattern "A" in a mask which has only pattern "9"</li>
+<li>Internet Explorer 8 support</li>
+<li>Added AMD support (only client-side)</li>
+<li>maskNumber function accepts negative numbers</li>
+</ul>
+
+<h2>
+<a id="020" class="anchor" href="#020" aria-hidden="true"><span class="octicon octicon-link"></span></a>0.2.0</h2>
+
+<ul>
+<li>Added zeroCents to maskMoney function</li>
+<li>Added maskPhone, maskCPF, maskCNPJ and maskDate function</li>
+<li>Added bindElementToMask function</li>
+</ul>
+
+<h2>
+<a id="010" class="anchor" href="#010" aria-hidden="true"><span class="octicon octicon-link"></span></a>0.1.0</h2>
+
+<ul>
+  <li>Added maskMoney</li>
+  <li>Added Bower support</li>
+  <li>Added Demo page</li>
+  <li>Added JSHint</li>
+  <li>Mobile browser support</li>
+  <li>Added Grunt build</li>
+  <li>Added Travis-CI</li>
+  <li>Added CodeClimate</li>
+</ul>
+
+<h1>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h1>
+
+<p>MIT License: <a href="http://vanilla-masker.mit-license.org">http://vanilla-masker.mit-license.org</a></p>
+
+
+  <footer class="site-footer">
+    <span class="site-footer-owner"><a href="https://github.com/vanilla-masker/vanilla-masker">VanillaMasker</a> is maintained by <a href="https://github.com/vanilla-masker">vanilla-masker organization</a>.</span>
+
+    <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+  </footer>
+</section>
+
+  </body>
+</html>
