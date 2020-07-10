@@ -1,0 +1,27 @@
+{
+  "name": "vanilla-masker",
+  "version": "1.1.1",
+  "description": "VanillaMasker is a pure javascript input mask.",
+  "homepage": "https://vanilla-masker.github.io/vanilla-masker/",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Creditas/vanilla-masker.git"
+  },
+  "authors": [
+    "Caio Ribeiro Pereira <caio.ribeiro.pereira@gmail.com>",
+    "Leandro Alvares da Costa <leandroadacosta@gmail.com>",
+    "Henrique Antonini Silvério <contato@henriquesilverio.com>",
+    "Joilson Marques <joilsonmarques@gmail.com>",
+    "Leonardo Andrade <leonardopandrade@gmail.com>"
+  ],
+  "main": "lib/vanilla-masker.js",
+  "license": "MIT <http://vanilla-masker.mit-license.org>",
+  "bugs": "https://github.com/vanilla-masker/vanilla-masker/issues",
+  "ignore": [
+    "*.yml",
+    "**/.*",
+    "tests",
+    "node_modules",
+    "bower_components"
+  ]
+}
